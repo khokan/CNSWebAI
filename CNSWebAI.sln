@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CNSWebAI.API", "CNSWebAI.API\CNSWebAI.API.csproj", "{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CNSWebAI.Core", "CNSWebAI.Core\CNSWebAI.Core.csproj", "{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CNSWebAI.Infrastructure", "CNSWebAI.Infrastructure\CNSWebAI.Infrastructure.csproj", "{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C50}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CNSWebAI.Services", "CNSWebAI.Services\CNSWebAI.Services.csproj", "{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5E8F3F-3C3C-4E3C-8F3C-5E8F3F3C3C51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
