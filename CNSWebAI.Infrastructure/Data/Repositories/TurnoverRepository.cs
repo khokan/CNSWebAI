@@ -48,6 +48,6 @@ public class TurnoverRepository : Repository<Turnover>, ITurnoverRepository
         return await _context.Turnovers
             .Where(t => t.CompanyId == companyId && t.Year == year && t.Quarter == quarter)
             .Select(t => new { t.Id, t.Amount, t.Year, t.Quarter, t.Currency })
-            .FirstOrDefaultAsync() ?? new { };
+            .FirstOrDefaultAsync();
     }
 }

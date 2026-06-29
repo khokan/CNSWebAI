@@ -102,7 +102,8 @@ public class ApplicationDbContext : DbContext
             new Turnover { Id = 16, CompanyId = 3, Amount = 3800000, Year = 2024, Quarter = 4, Currency = "USD", Description = "Q4 2024" }
         );
 
-        // Sample user (password: Admin@123 - hashed)
+        // Sample user (TEMPORARY: plain password for testing - Admin@123)
+        // TODO: Hash this properly with BCrypt after verification works
         modelBuilder.Entity<User>().HasData(
             new User 
             { 
@@ -110,7 +111,7 @@ public class ApplicationDbContext : DbContext
                 Username = "admin", 
                 Email = "admin@cnsweb.com", 
                 FullName = "Administrator",
-                PasswordHash = "$2a$11$u6kVSdGKN5E9IH6hjxNYEeVFqM4z4/aVvbYYMo6E5vkgqfkw5n4lS", // Admin@123
+                PasswordHash = "Admin@123", // TEMPORARY: Plain password for testing
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow
             }

@@ -18,14 +18,14 @@ public class ChatbotController : ControllerBase
     private readonly IRepository<ChatHistory> _chatHistoryRepository;
     private readonly ITurnoverRepository _turnoverRepository;
     private readonly IRepository<Company> _companyRepository;
-    private readonly ILogger _logger;
+    private readonly Serilog.ILogger _logger;
 
     public ChatbotController(
         IChatbotService chatbotService,
         IRepository<ChatHistory> chatHistoryRepository,
         ITurnoverRepository turnoverRepository,
         IRepository<Company> companyRepository,
-        ILogger logger)
+        Serilog.ILogger logger)
     {
         _chatbotService = chatbotService;
         _chatHistoryRepository = chatHistoryRepository;

@@ -301,3 +301,161 @@ SELECT
 FROM ChatHistories
 GROUP BY IsSuccessful
 ```
+
+## 🚀 POSTMAN STEP-BY-STEP GUIDE
+
+### Prerequisites
+1. Download [Postman](https://www.postman.com/downloads/)
+2. Install and open it
+3. Create a new Workspace
+
+---
+
+### STEP 1: Create Environment Variable
+
+1. Click **Environments** (left sidebar)
+2. Click **+ Create**
+3. Name: `CNSWebAI_Dev`
+4. Add variables:
+
+| Variable | Value |
+|---|---|
+| `base_url` | `https://localhost:5001` |
+| `token` | (empty - will be filled) |
+
+5. Click **Save**
+
+---
+
+### STEP 2: Login & Get Token
+
+#### 2.1 Create Login Request
+
+1. Click **+ New** → **Request**
+2. Name: `Auth - Login`
+3. Method: **POST**
+4. URL: `{{base_url}}/api/auth/login`
+5. Headers:
+   - `Content-Type: application/json`
+
+#### 2.2 Body (JSON)
+
+```json
+{
+  "username": "admin",
+  "password": "Admin@123"
+}
+```
+
+#### 2.3 Auto-capture Token
+
+Click **Tests** tab, paste:
+```javascript
+if (pm.response.code === 200) {
+    var jsonData = pm.response.json();
+    pm.environment.set("token", jsonData.token);
+    console.log("✅ Token saved!");
+}
+```
+
+#### 2.4 Send & Verify
+
+- Click **Send**
+- Check response has token
+- Token auto-saved in Environment ✓
+
+---
+
+### STEP 3: Get Companies
+
+1. Create new request
+2. Name: `Chatbot - Get Companies`
+3. Method: **GET**
+4. URL: `{{base_url}}/api/chatbot/companies`
+5. Authorization → Bearer Token → `{{token}}`
+6. Click **Send** ✓
+
+---
+
+### STEP 4: Send Query - Yearly Turnover
+
+1. Create new request
+2. Name: `Chatbot - Query Yearly`
+3. Method: **POST**
+4. URL: `{{base_url}}/api/chatbot/query`
+5. Headers: `Content-Type: application/json`
+6. Authorization → Bearer Token → `{{token}}`
+7. Body (JSON):
+
+```json
+{
+  "query": "What is the total turnover yearwise?",
+  "companyId": null
+}
+```
+
+8. Click **Send** ✓
+
+---
+
+### STEP 5: Send Query - Specific Company
+
+1. Create new request
+2. Name: `Chatbot - Query TechCorp`
+3. Method: **POST**
+4. URL: `{{base_url}}/api/chatbot/query`
+5. Authorization → Bearer Token → `{{token}}`
+6. Body:
+
+```json
+{
+  "query": "Show me TechCorp turnover by year",
+  "companyId": 1
+}
+```
+
+7. Click **Send** ✓
+
+---
+
+### STEP 6: Send Query - Quarterly
+
+1. Create new request
+2. Name: `Chatbot - Query Quarterly`
+3. Method: **POST**
+4. URL: `{{base_url}}/api/chatbot/query`
+5. Authorization → Bearer Token → `{{token}}`
+6. Body:
+
+```json
+{
+  "query": "What are the quarterly results?",
+  "companyId": 1
+}
+```
+
+7. Click **Send** ✓
+
+---
+
+### STEP 7: Get Chat History
+
+1. Create new request
+2. Name: `Chatbot - Get History`
+3. Method: **GET**
+4. URL: `{{base_url}}/api/chatbot/history?pageNumber=1&pageSize=10`
+5. Authorization → Bearer Token → `{{token}}`
+6. Click **Send** ✓
+
+---
+
+### Summary: All Requests to Create
+
+| # | Name | Method | URL | Auth |
+|---|---|---|---|---|
+| 1 | Auth - Login | POST | `/api/auth/login` | None |
+| 2 | Chatbot - Companies | GET | `/api/chatbot/companies` | Token |
+| 3 | Chatbot - Query Yearly | POST | `/api/chatbot/query` | Token |
+| 4 | Chatbot - Query TechCorp | POST | `/api/chatbot/query` | Token |
+| 5 | Chatbot - Query Quarterly | POST | `/api/chatbot/query` | Token |
+| 6 | Chatbot - Get History | GET | `/api/chatbot/history` | Token |

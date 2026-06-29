@@ -65,3 +65,6 @@ pids/
 # Misc
 .DS_Store
 Thumbs.db
+
+Migration files
+Migrations/

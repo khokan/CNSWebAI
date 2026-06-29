@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using CNSWebAI.Core.DTOs;
 using CNSWebAI.Services.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CNSWebAI.API.Controllers;
 
@@ -10,9 +11,9 @@ namespace CNSWebAI.API.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly IAuthenticationService _authService;
-    private readonly ILogger _logger;
+    private readonly Serilog.ILogger _logger;
 
-    public AuthController(IAuthenticationService authService, ILogger logger)
+    public AuthController(IAuthenticationService authService, Serilog.ILogger logger)
     {
         _authService = authService;
         _logger = logger;

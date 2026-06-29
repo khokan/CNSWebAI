@@ -8,9 +8,9 @@ namespace CNSWebAI.API.Middleware;
 public class GlobalExceptionMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly ILogger _logger;
+    private readonly Serilog.ILogger _logger;
 
-    public GlobalExceptionMiddleware(RequestDelegate next, ILogger logger)
+    public GlobalExceptionMiddleware(RequestDelegate next, Serilog.ILogger logger)
     {
         _next = next;
         _logger = logger;

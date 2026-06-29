@@ -1,4 +1,6 @@
 using Serilog;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using CNSWebAI.Core.DTOs;
 
 namespace CNSWebAI.Services.LLM;
@@ -56,7 +58,7 @@ public class LocalLLMChatbotService : IChatbotService
         }
     }
 
-    public async Task<string> GenerateSqlFromQueryAsync(string userQuery, int? companyId = null)
+    public Task<string> GenerateSqlFromQueryAsync(string userQuery, int? companyId = null)
     {
         // This is a simplified local LLM implementation
         // In production, you would integrate with Ollama, LM Studio, or similar
@@ -141,7 +143,7 @@ public class LocalLLMChatbotService : IChatbotService
                     ORDER BY c.Name, t.Year DESC";
             }
 
-            return sql.Trim();
+            return Task.FromResult(sql.Trim());
         }
         catch (Exception ex)
         {
@@ -150,17 +152,17 @@ public class LocalLLMChatbotService : IChatbotService
         }
     }
 
-    public async Task<string> FormatResponseAsync(string sqlQuery, object? queryResult)
+    public Task<string> FormatResponseAsync(string sqlQuery, object? queryResult)
     {
         try
         {
             if (queryResult == null)
-                return "No results found for your query.";
+                return Task.FromResult("No results found for your query.");
 
             // Format the response based on query type
             var response = $"Query executed successfully.\n\nResults:\n{queryResult}";
 
-            return response;
+            return Task.FromResult(response);
         }
         catch (Exception ex)
         {
